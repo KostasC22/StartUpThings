@@ -15,9 +15,11 @@ public class AutoStartUpService extends Service {
 
     private static final String TAG = "AutoStartUpService";
 
+    private Realm realm;
+
     public void onCreate(){
         super.onCreate();
-        Realm.init(this);
+
 
     }
 

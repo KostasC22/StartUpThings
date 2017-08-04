@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StartUpThings</string>
+    <string name="status_output">Status Output…</string>
 </resources>
