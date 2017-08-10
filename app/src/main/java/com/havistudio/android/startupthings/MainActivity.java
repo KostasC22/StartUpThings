@@ -3,6 +3,7 @@ package com.havistudio.android.startupthings;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getName();
     private LinearLayout rootLayout = null;
+    private Button addingButton;
 
     private Realm realm;
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         rootLayout = ((LinearLayout) findViewById(R.id.container));
         rootLayout.removeAllViews();
+        addingButton = ((Button) findViewById(R.id.addingbutton));
 
         // Create the Realm instance
         realm = Realm.getDefaultInstance();
