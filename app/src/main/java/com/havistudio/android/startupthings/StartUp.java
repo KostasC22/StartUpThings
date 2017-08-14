@@ -1,6 +1,9 @@
 package com.havistudio.android.startupthings;
 
+import java.util.UUID;
+
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by kostas on 04/08/2017.
@@ -8,16 +11,17 @@ import io.realm.RealmObject;
 
 public class StartUp extends RealmObject {
 
-    private long id;
+    @PrimaryKey
+    private String id = UUID.randomUUID().toString();
     private String type;
     private String packageName;
     private String fileName;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

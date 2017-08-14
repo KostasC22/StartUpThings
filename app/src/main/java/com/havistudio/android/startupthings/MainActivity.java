@@ -24,8 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getName();
     private LinearLayout rootLayout = null;
-    @BindView(R.id.addingbutton) Button addingButton;
-    @BindView(R.id.apps_spinner) Spinner appsSpinner;
+    @BindView(R.id.addingbutton)
+    Button addingButton;
+    @BindView(R.id.apps_spinner)
+    Spinner appsSpinner;
+    @BindView(R.id.type_spinner)
+    Spinner typeSpinner;
 
     private Realm realm;
     private AppSpinAdapter adapter;
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             String localAppName = packageInfo.loadLabel(getPackageManager()).toString();
             Log.d(TAG, "Installed package :" + localPackageName);
             Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
-            Log.d(TAG, "AppName:"+ localAppName);
+            Log.d(TAG, "AppName:" + localAppName);
             Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName));
             MyApp lmyapp = new MyApp();
             lmyapp.setPackageName(localPackageName);
@@ -89,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             public void execute(Realm realm) {
                 // Add a person
                 StartUp startUpTemp = realm.createObject(StartUp.class);
-                startUpTemp.setId(1);
                 startUpTemp.setFileName("test1");
                 startUpTemp.setPackageName("com.havistudio.test1");
                 startUpTemp.setType("test1");
@@ -102,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
             public void execute(Realm realm) {
                 // Add a person
                 StartUp startUpTemp = realm.createObject(StartUp.class);
-                startUpTemp.setId(2);
                 startUpTemp.setFileName("test1");
                 startUpTemp.setPackageName("com.havistudio.test1");
                 startUpTemp.setType("test1");
@@ -127,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         ListIterator<StartUp> LIResult = result.listIterator();
         while (LIResult.hasNext()) {
             StartUp element = LIResult.next();
-            showStatus(element.getId() + " ");
+            showStatus(element.getId() + " " + element.getPackageName() + " " + element.getType());
         }
 
 
@@ -156,11 +158,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void execute(Realm realm) {
                 // Add a Startup
+                Log.i(TAG,"adding");
                 StartUp startUpTemp = realm.createObject(StartUp.class);
-                startUpTemp.setId(1);
-                startUpTemp.setFileName("test1");
-                startUpTemp.setPackageName("com.havistudio.test1");
-                startUpTemp.setType("test1");
+                startUpTemp.setFileName("");
+                startUpTemp.setPackageName(appsSpinner.getSelectedItem() + "");
+                startUpTemp.setType(typeSpinner.getSelectedItem() + "");
             }
         });
 

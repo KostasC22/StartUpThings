@@ -22,9 +22,7 @@
         <Spinner
             android:id="@+id/apps_spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/startup_types"
-            android:prompt="@string/startup_type_prompt" />
+            android:layout_height="wrap_content" />
 
         <Spinner
             android:id="@+id/type_spinner"
