@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">StartUpThings</string>
     <string name="status_output">Status Output…</string>
+    <string name="add_button">ADD</string>
 
     <string name="startup_type_prompt">Choose a type</string>
     <string-array name="startup_types">

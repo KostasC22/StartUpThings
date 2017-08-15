@@ -12,10 +12,13 @@ import io.realm.annotations.PrimaryKey;
 public class StartUp extends RealmObject {
 
     @PrimaryKey
-    private String id = UUID.randomUUID().toString();
+    private String id;
+    private String data;
     private String type;
+    private String category;
     private String packageName;
     private String fileName;
+    private Long delay;
 
     public String getId() {
         return id;
@@ -25,12 +28,28 @@ public class StartUp extends RealmObject {
         this.id = id;
     }
 
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getPackageName() {
@@ -47,5 +66,13 @@ public class StartUp extends RealmObject {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public Long getDelay() {
+        return delay;
+    }
+
+    public void setDelay(Long delay) {
+        this.delay = delay;
     }
 }

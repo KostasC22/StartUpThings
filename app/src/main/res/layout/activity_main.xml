@@ -17,7 +17,7 @@
             android:id="@+id/addingbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test1"/>
+            android:text="@string/add_button"/>
 
         <Spinner
             android:id="@+id/apps_spinner"

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void execute(Realm realm) {
                 // Add a person
-                StartUp startUpTemp = realm.createObject(StartUp.class);
+                StartUp startUpTemp = realm.createObject(StartUp.class,UUID.randomUUID().toString());
                 startUpTemp.setFileName("test1");
                 startUpTemp.setPackageName("com.havistudio.test1");
                 startUpTemp.setType("test1");
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void execute(Realm realm) {
                 // Add a person
-                StartUp startUpTemp = realm.createObject(StartUp.class);
+                StartUp startUpTemp = realm.createObject(StartUp.class,UUID.randomUUID().toString());
                 startUpTemp.setFileName("test1");
                 startUpTemp.setPackageName("com.havistudio.test1");
                 startUpTemp.setType("test1");
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             public void execute(Realm realm) {
                 // Add a Startup
                 Log.i(TAG,"adding");
-                StartUp startUpTemp = realm.createObject(StartUp.class);
+                StartUp startUpTemp = realm.createObject(StartUp.class,UUID.randomUUID().toString());
                 startUpTemp.setFileName("");
                 startUpTemp.setPackageName(appsSpinner.getSelectedItem() + "");
                 startUpTemp.setType(typeSpinner.getSelectedItem() + "");
