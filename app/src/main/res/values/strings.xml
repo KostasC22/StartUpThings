@@ -9,5 +9,8 @@
         <item>URL</item>
         <item>File</item>
     </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_adding">AddingActivity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
