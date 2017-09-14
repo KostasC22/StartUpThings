@@ -63,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
             //showStatus(element.getId() + " " + element.getPackageName() + " " + element.getType());
         }
 
-
+        listAdapter = new MyListAdapter(MainActivity.this,result);
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(listAdapter);
 
     }
 
