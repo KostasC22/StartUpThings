@@ -28,6 +28,15 @@
             android:entries="@array/startup_types"
             android:prompt="@string/startup_type_prompt" />
 
+
+        <EditText
+            android:id="@+id/data_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
         <Button
             android:id="@+id/addingbutton"
             android:layout_width="wrap_content"

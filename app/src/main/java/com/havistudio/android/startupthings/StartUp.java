@@ -75,4 +75,17 @@ public class StartUp extends RealmObject {
     public void setDelay(Long delay) {
         this.delay = delay;
     }
+
+    @Override
+    public String toString() {
+        return "StartUp{" +
+                "id='" + id + '\'' +
+                ", data='" + data + '\'' +
+                ", type='" + type + '\'' +
+                ", category='" + category + '\'' +
+                ", packageName='" + packageName + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", delay=" + delay +
+                '}';
+    }
 }

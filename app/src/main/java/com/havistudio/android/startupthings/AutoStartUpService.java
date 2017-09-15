@@ -38,37 +38,42 @@ public class AutoStartUpService extends Service {
         while (LIResult.hasNext()) {
             final StartUp element = LIResult.next();
             Log.i(TAG,element.getId() + " " + element.getPackageName() + " " + element.getType());
-            if(element.getCategory().equals("URL")){
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        String url = element.getData();
-                        Intent intentVLC = new Intent(Intent.ACTION_VIEW);
-                        intentVLC.setPackage(element.getPackageName());
-                        intentVLC.setDataAndType(Uri.parse(url), element.getType());
-                        intentVLC.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intentVLC);
-                    }
-                }, element.getDelay());
-            } else if(element.getCategory().equals("File")){
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        File myFile = new File(element.getData());
-                        Uri uri = Uri.fromFile(myFile);
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setDataAndType(uri, element.getType());
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }
-                }, element.getDelay());
-            } else if(element.getCategory().equals("Application")){
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        openApp(mContext,element.getPackageName());
-                    }
-                }, element.getDelay());
+            Log.i(TAG,element.toString());
+            try {
+                if (element.getType().equals("URL")) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            String url = element.getData();
+                            Intent intentURL = new Intent(Intent.ACTION_VIEW);
+                            intentURL.setPackage(element.getPackageName());
+                            intentURL.setDataAndType(Uri.parse(url), element.getType());
+                            intentURL.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intentURL);
+                        }
+                    }, element.getDelay());
+                } else if (element.getType().equals("File")) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            File myFile = new File(element.getData());
+                            Uri uri = Uri.fromFile(myFile);
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setDataAndType(uri, element.getType());
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                    }, element.getDelay());
+                } else if (element.getType().equals("Application")) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            openApp(mContext, element.getPackageName());
+                        }
+                    }, element.getDelay());
+                }
+            } catch (Exception e){
+                e.printStackTrace();
             }
         }
     }
