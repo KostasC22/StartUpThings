@@ -36,6 +36,8 @@ public class AddingActivityFragment extends Fragment {
     Spinner typeSpinner;
     @BindView(R.id.data_field)
     EditText dataField;
+    @BindView(R.id.delay_field)
+    EditText delayField;
 
     public AddingActivityFragment() {
     }
@@ -81,12 +83,19 @@ public class AddingActivityFragment extends Fragment {
             public void execute(Realm realm) {
                 // Add a Startup
                 Log.i(TAG,"adding");
+                Log.i(TAG,"adding"+appsSpinner.getSelectedItem().toString());
                 StartUp startUpTemp = realm.createObject(StartUp.class, UUID.randomUUID().toString());
                 startUpTemp.setFileName("");
-                startUpTemp.setPackageName(appsSpinner.getSelectedItem() + "");
+                startUpTemp.setPackageName(appsSpinner.getSelectedItem().toString() + "");
                 startUpTemp.setType(typeSpinner.getSelectedItem() + "");
                 startUpTemp.setData(dataField.getText().toString());
-                startUpTemp.setDelay(1000L);
+                Long tempDelay = 1000L;
+                try{
+                    tempDelay = Long.parseLong(delayField.getText().toString());
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+                startUpTemp.setDelay(tempDelay);
             }
         });
 

@@ -5,7 +5,7 @@
 
     <string name="startup_type_prompt">Choose a type</string>
     <string-array name="startup_types">
-        <item>Program</item>
+        <item>Application</item>
         <item>URL</item>
         <item>File</item>
     </string-array>

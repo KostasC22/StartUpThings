@@ -30,4 +30,8 @@ public class MyApp {
         this.packageName = packageName;
     }
 
+    @Override
+    public String toString() {
+        return packageName;
+    }
 }
