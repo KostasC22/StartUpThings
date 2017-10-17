@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 
 import java.io.File;
@@ -58,10 +59,14 @@ public class AutoStartUpService extends Service {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            File myFile = new File(element.getData());
-                            Uri uri = Uri.fromFile(myFile);
+
+                            Uri fileURI = FileProvider.getUriForFile(AutoStartUpService.this,
+                                    BuildConfig.APPLICATION_ID + ".provider",
+                                    new File(element.getData()));
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setDataAndType(uri, element.getType());
+                            String tempDataType = "application/"+element.getType();
+                            Log.i(TAG, "tempDataType:"+tempDataType);
+                            intent.setDataAndType(fileURI, "application/vnd.ms-powerpoint");
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
