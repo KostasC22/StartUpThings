@@ -17,6 +17,7 @@ public class StartUp extends RealmObject {
     private String type;
     private String category;
     private String packageName;
+    private String label;
     private String fileName;
     private Long delay;
 
@@ -76,6 +77,14 @@ public class StartUp extends RealmObject {
         this.delay = delay;
     }
 
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
     @Override
     public String toString() {
         return "StartUp{" +
@@ -84,6 +93,7 @@ public class StartUp extends RealmObject {
                 ", type='" + type + '\'' +
                 ", category='" + category + '\'' +
                 ", packageName='" + packageName + '\'' +
+                ", label='" + label + '\'' +
                 ", fileName='" + fileName + '\'' +
                 ", delay=" + delay +
                 '}';

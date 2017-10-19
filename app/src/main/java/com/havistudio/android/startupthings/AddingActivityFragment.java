@@ -30,6 +30,8 @@ public class AddingActivityFragment extends Fragment {
 
     private Realm realm;
     private AppSpinAdapter adapter;
+    @BindView(R.id.label_field)
+    EditText labelField;
     @BindView(R.id.apps_spinner)
     Spinner appsSpinner;
     @BindView(R.id.type_spinner)
@@ -84,7 +86,10 @@ public class AddingActivityFragment extends Fragment {
                 // Add a Startup
                 Log.i(TAG,"adding");
                 Log.i(TAG,"adding"+appsSpinner.getSelectedItem().toString());
+                Log.i(TAG,"adding type"+typeSpinner.getSelectedItem());
+                Log.i(TAG,"adding label"+labelField.getText().toString());
                 StartUp startUpTemp = realm.createObject(StartUp.class, UUID.randomUUID().toString());
+                startUpTemp.setLabel(labelField.getText().toString());
                 startUpTemp.setFileName("");
                 startUpTemp.setPackageName(appsSpinner.getSelectedItem().toString() + "");
                 startUpTemp.setType(typeSpinner.getSelectedItem() + "");

@@ -107,7 +107,7 @@ public class MyListAdapter extends RealmBaseAdapter<StartUp> implements ListAdap
         Log.i(TAG,adapterData.toString());
         if (adapterData != null) {
             final StartUp item = adapterData.get(position);
-            viewHolder.mText.setText(item.getCategory());
+            viewHolder.mText.setText(item.getLabel());
             viewHolder.mText2.setText(item.getPackageName());
             viewHolder.mText3.setText(item.getDelay()+"");
 
